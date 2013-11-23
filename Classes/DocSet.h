@@ -8,6 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol DocSetProtocol <NSObject>
+
+@required
+- (NSURL *)URLForNode:(NSManagedObject *)node;
+- (NSURL *)webURLForNode:(NSManagedObject *)node;
+- (NSURL *)webURLForLocalURL:(NSURL *)localURL;
+- (NSString *)anchorForNode:(NSManagedObject*)node;
+@end
+
 #define DocSetWillBeDeletedNotification		@"DocSetWillBeDeletedNotification"
 
 #define kNodeSectionNodes					@"nodes"
@@ -49,5 +58,6 @@ typedef void(^DocSetSearchCompletionHandler)(NSString *searchTerm, NSArray *resu
 - (NSURL *)URLForNode:(NSManagedObject *)node;
 - (NSURL *)webURLForNode:(NSManagedObject *)node;
 - (NSURL *)webURLForLocalURL:(NSURL *)localURL;
+- (NSString *)anchorForNode:(NSManagedObject*)node;
 
 @end

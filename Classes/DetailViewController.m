@@ -309,7 +309,7 @@
 	self.docSet = set;
 	NSURL *URL = [self.docSet URLForNode:node];
 	
-	NSString *nodeAnchor = [node valueForKey:@"kAnchor"];
+	NSString *nodeAnchor = [self.docSet anchorForNode:node];
 	if (nodeAnchor.length == 0) nodeAnchor = nil;
 	
 	//Handle soft redirects (they otherwise break the history):	

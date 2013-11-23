@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0668901840E37C006BDC7A /* AppleDocSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A06688F1840E37C006BDC7A /* AppleDocSet.m */; };
+		0A0668931840E3A1006BDC7A /* AppleOldDocSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0668921840E3A1006BDC7A /* AppleOldDocSet.m */; };
 		1D3623260D0F684500981E51 /* DocSetsAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* DocSetsAppDelegate.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
@@ -128,6 +130,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A06688E1840E37C006BDC7A /* AppleDocSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleDocSet.h; sourceTree = "<group>"; };
+		0A06688F1840E37C006BDC7A /* AppleDocSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleDocSet.m; sourceTree = "<group>"; };
+		0A0668911840E3A1006BDC7A /* AppleOldDocSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleOldDocSet.h; sourceTree = "<group>"; };
+		0A0668921840E3A1006BDC7A /* AppleOldDocSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleOldDocSet.m; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* DocSetsAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocSetsAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* DocSetsAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocSetsAppDelegate.m; sourceTree = "<group>"; };
@@ -246,7 +252,7 @@
 		7F97CFCE160CDDB800313B1D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		7FACA8E914CC0A2100BADCC8 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		7FACA8EB14CC371C00BADCC8 /* DocSetDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocSetDownloadManager.h; sourceTree = "<group>"; };
-		7FACA8EC14CC371C00BADCC8 /* DocSetDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocSetDownloadManager.m; sourceTree = "<group>"; };
+		7FACA8EC14CC371C00BADCC8 /* DocSetDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocSetDownloadManager.m; sourceTree = "<group>"; wrapsLines = 1; };
 		7FACA8EE14CC385D00BADCC8 /* DownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadViewController.h; sourceTree = "<group>"; };
 		7FACA8EF14CC385D00BADCC8 /* DownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadViewController.m; sourceTree = "<group>"; };
 		7FDB3468153F156900A4AF5F /* DocSets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = DocSets.entitlements; sourceTree = "<group>"; };
@@ -462,6 +468,10 @@
 				7FDB349E1540D38900A4AF5F /* NSString+RelativePath.m */,
 				7FF706C812ABE88A001FF09F /* DocSet.h */,
 				7FF706C912ABE88A001FF09F /* DocSet.m */,
+				0A06688E1840E37C006BDC7A /* AppleDocSet.h */,
+				0A06688F1840E37C006BDC7A /* AppleDocSet.m */,
+				0A0668911840E3A1006BDC7A /* AppleOldDocSet.h */,
+				0A0668921840E3A1006BDC7A /* AppleOldDocSet.m */,
 				7FACA8EB14CC371C00BADCC8 /* DocSetDownloadManager.h */,
 				7FACA8EC14CC371C00BADCC8 /* DocSetDownloadManager.m */,
 				7FEFBF2A156B619D00C75316 /* BookmarksManager.h */,
@@ -634,7 +644,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0500;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "DocSets" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -770,6 +780,7 @@
 				7F1D430614D1632700A85CB3 /* linuxattr.c in Sources */,
 				7F1D430714D1632700A85CB3 /* macho.c in Sources */,
 				7F1D430814D1632700A85CB3 /* script.c in Sources */,
+				0A0668931840E3A1006BDC7A /* AppleOldDocSet.m in Sources */,
 				7F1D430914D1632700A85CB3 /* signature.c in Sources */,
 				7F1D430A14D1632700A85CB3 /* stat.c in Sources */,
 				7F1D430B14D1632700A85CB3 /* subdoc.c in Sources */,
@@ -779,6 +790,7 @@
 				7F7862FC150D4ECD003CFB2E /* AboutViewController.m in Sources */,
 				7FDB349F1540D38900A4AF5F /* NSString+RelativePath.m in Sources */,
 				7FEFBF2C156B619D00C75316 /* BookmarksManager.m in Sources */,
+				0A0668901840E37C006BDC7A /* AppleDocSet.m in Sources */,
 				7FEFBF35156D328200C75316 /* BookmarkSyncLogViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -844,12 +856,12 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -859,12 +871,11 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Ole Zorn";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;

@@ -8,6 +8,8 @@
 
 #import "DocSetDownloadManager.h"
 #import "DocSet.h"
+#import "AppleDocSet.h"
+#import "AppleOldDocSet.h"
 #import "xar.h"
 #include <sys/xattr.h>
 
@@ -89,8 +91,23 @@
 			NSString *fullPath = [docPath stringByAppendingPathComponent:path];
 			u_int8_t b = 1;
 			setxattr([fullPath fileSystemRepresentation], "com.apple.MobileBackup", &b, 1, 0, 0);
-			DocSet *docSet = [[DocSet alloc] initWithPath:fullPath];
-			if (docSet) [loadedSets addObject:docSet];
+            
+            NSString *infoPath = [fullPath stringByAppendingPathComponent:@"Contents/Info.plist"];
+            NSDictionary *infoDict = [NSDictionary dictionaryWithContentsOfFile:infoPath];
+            NSString *xcodeVersion = infoDict[@"DocSetMinimumXcodeVersion"];
+            NSInteger xcodeMajorVersion = [[xcodeVersion componentsSeparatedByString:@"."][0] integerValue];
+
+            DocSet *docSet;
+            
+            if (xcodeMajorVersion >= 5) {
+                docSet = [[AppleDocSet alloc] initWithPath:fullPath];
+            } else {
+                docSet = [[AppleOldDocSet alloc] initWithPath:fullPath];
+            }
+            
+            if (docSet) {
+                [loadedSets addObject:docSet];
+            }
 		}
 	}
 	self.downloadedDocSets = [NSArray arrayWithArray:loadedSets];
