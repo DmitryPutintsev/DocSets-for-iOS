@@ -36,19 +36,31 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(docSetWillBeDeleted:) name:DocSetWillBeDeletedNotification object:nil];
 	
 	UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-	outlineButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Outline.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showOutline:)];
+
+    outlineButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Outline.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(showOutline:)];
 	outlineButtonItem.width = 32.0;
 	outlineButtonItem.enabled = NO;
-	
+    
 	backButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Back.png"] style:UIBarButtonItemStylePlain target:self action:@selector(goBack:)];
 	backButtonItem.enabled = NO;
+    
 	forwardButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Forward.png"] style:UIBarButtonItemStylePlain target:self action:@selector(goForward:)];
 	forwardButtonItem.enabled = NO;
+    
 	bookmarksButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemBookmarks target:self action:@selector(showBookmarks:)];
 	bookmarksButtonItem.enabled = NO;
+    
 	actionButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(showActions:)];
 	actionButtonItem.enabled = NO;
 	
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0) {
+        outlineButtonItem.imageInsets = UIEdgeInsetsMake(10.0f, 0.0f, -10.0f, 0.0f);
+        backButtonItem.imageInsets = UIEdgeInsetsMake(10.0f, 0.0f, -10.0f, 0.0f);
+        forwardButtonItem.imageInsets = UIEdgeInsetsMake(10.0f, 0.0f, -10.0f, 0.0f);
+        bookmarksButtonItem.imageInsets = UIEdgeInsetsMake(10.0f, 0.0f, -10.0f, 0.0f);
+        actionButtonItem.imageInsets = UIEdgeInsetsMake(10.0f, 0.0f, -10.0f, 0.0f);
+    }
+    
 	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
 		UIBarButtonItem *browseButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"DocSets", nil) style:UIBarButtonItemStyleBordered target:self action:@selector(showLibrary:)];
 		UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
@@ -81,7 +93,13 @@
 	titleLabel.backgroundColor = [UIColor clearColor];
 	titleLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
 	
-	CGFloat topToolbarHeight = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? 44.0 : 0.0;
+	CGFloat topToolbarHeight;
+    // check ios6 version
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] <= 6.1) {
+        topToolbarHeight = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? 44.0 : 0.0;
+    } else {
+        topToolbarHeight = ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? 64.0 : 0.0;
+    }
 	webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, topToolbarHeight, self.view.bounds.size.width, self.view.bounds.size.height - topToolbarHeight)];
 	webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	webView.scalesPageToFit = YES;//([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad);
