@@ -506,8 +506,12 @@
 	//TODO: This should probably also be a method of DocSet...
 	NSFileManager *fm = [NSFileManager defaultManager];
 	NSString *path = [URL path];
-	NSString *pathForBook = nil;
-	while (path && ![path isEqual:@"/"]) {		
+    // Fix path for simulator
+    #if (TARGET_IPHONE_SIMULATOR)
+        path = [path stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
+    #endif
+    NSString *pathForBook = nil;
+	while (path && ![path isEqual:@"/"]) {
 		NSString *possibleBookPath = [path stringByAppendingPathComponent:@"book.json"];
 		BOOL bookExists = [fm fileExistsAtPath:possibleBookPath];
 		if (bookExists) {
